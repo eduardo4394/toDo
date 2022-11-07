@@ -7,7 +7,6 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function TaskForm() {
   const [task, setTask] = useState({
@@ -15,9 +14,16 @@ export default function TaskForm() {
     description: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("submit");
+
+    const res = await fetch("http://localhost:3001/tasks", {
+      method: "POST",
+      body: JSON.stringify(task),
+      headers: { "Content-Type": "application/json" },
+    });
+    const data = await res.json();
+    console.log(data);
   };
 
   const handleChange = (e) => {
