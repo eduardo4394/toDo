@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { URL } from "../config";
 
 export default function TaskForm() {
   const navigate = useNavigate();
@@ -22,8 +23,9 @@ export default function TaskForm() {
   });
 
   const loadTask = async (id) => {
-    const res = await fetch(`http://localhost:3001/tasks/${id}`);
+    const res = await fetch(`${URL}/tasks/${id}`);
     const data = await res.json();
+
     setTask({ title: data.title, description: data.description });
     setEditing(true);
   };
@@ -39,13 +41,13 @@ export default function TaskForm() {
     setLoading(true);
 
     if (editing) {
-      await fetch(`http://localhost:3001/tasks/${params.id}`, {
+      await fetch(`${URL}/tasks/${params.id}`, {
         method: "PUT",
         body: JSON.stringify(task),
         headers: { "Content-Type": "application/json" },
       });
     } else {
-      await fetch("http://localhost:3001/tasks", {
+      await fetch(`${URL}/tasks`, {
         method: "POST",
         body: JSON.stringify(task),
         headers: { "Content-Type": "application/json" },
