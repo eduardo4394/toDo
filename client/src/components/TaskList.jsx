@@ -9,16 +9,21 @@ export default function TaskList() {
   const [tasks, setTasks] = useState([]);
 
   const loadTasks = async () => {
-    const res = await fetch(URL);
+    const res = await fetch(
+      "https://todo-production-3ecd.up.railway.app/tasks"
+    );
     const data = await res.json();
     setTasks(data);
   };
 
   const handleDelete = async (id) => {
     try {
-      const resp = await fetch(`${URL}/tasks/${id}`, {
-        method: "DELETE",
-      });
+      const resp = await fetch(
+        `https://todo-production-3ecd.up.railway.app/tasks/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
       setTasks(tasks.filter((task) => task.id !== id));
     } catch (error) {
       console.log(error);

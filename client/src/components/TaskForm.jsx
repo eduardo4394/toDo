@@ -23,7 +23,9 @@ export default function TaskForm() {
   });
 
   const loadTask = async (id) => {
-    const res = await fetch(`${URL}/tasks/${id}`);
+    const res = await fetch(
+      `https://todo-production-3ecd.up.railway.app/tasks/${id}`
+    );
     const data = await res.json();
 
     setTask({ title: data.title, description: data.description });
@@ -41,13 +43,16 @@ export default function TaskForm() {
     setLoading(true);
 
     if (editing) {
-      await fetch(`${URL}/tasks/${params.id}`, {
-        method: "PUT",
-        body: JSON.stringify(task),
-        headers: { "Content-Type": "application/json" },
-      });
+      await fetch(
+        `https://todo-production-3ecd.up.railway.app/tasks/${params.id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify(task),
+          headers: { "Content-Type": "application/json" },
+        }
+      );
     } else {
-      await fetch(`${URL}/tasks`, {
+      await fetch(`https://todo-production-3ecd.up.railway.app/tasks`, {
         method: "POST",
         body: JSON.stringify(task),
         headers: { "Content-Type": "application/json" },
