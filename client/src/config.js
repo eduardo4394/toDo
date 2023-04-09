@@ -1,1 +1,1 @@
-export const URL = process.env.DB_HOST || "http://localhost:3005";
+export const URL = "todo-production-3ecd.up.railway.app";
