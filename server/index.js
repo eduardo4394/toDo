@@ -1,8 +1,8 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
-const taskRoutes = require("./routes/task.routes");
-const { pool } = require("./db");
+const taskRoutes = require("./routes/task.routes.js");
+const { pool } = require("./db.js");
 
 const app = express();
 

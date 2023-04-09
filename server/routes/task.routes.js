@@ -6,7 +6,7 @@ const {
   createTask,
   deleteTask,
   updateTask,
-} = require("../controllers/task.controller");
+} = require("../controllers/task.controller.js");
 
 const router = Router();
 
