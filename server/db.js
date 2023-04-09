@@ -1,13 +1,20 @@
 const { Pool } = require("pg");
 // const { config } = require("dotenv");
 // config();
-import {
+const {
   DB_HOST,
   DB_PORT,
   DB_PASSWORD,
   DB_USER,
   DB_DATABASE,
-} from "./config.js";
+} = require("./config.js");
+// import {
+//   DB_HOST,
+//   DB_PORT,
+//   DB_PASSWORD,
+//   DB_USER,
+//   DB_DATABASE,
+// } from "./config.js";
 
 const pool = new Pool({
   user: DB_USER,
