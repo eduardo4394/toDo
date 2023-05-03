@@ -17,11 +17,4 @@ const pool = new Pool({
   database: DB_DATABASE,
 });
 
-// const connectionString =
-//   "PGPASSWORD=TpYxL8a7sZN2SR3pyvjs psql -h containers-us-west-117.railway.app -U postgres -p 6829 -d railway";
-
-// const pool = new Pool({
-//   connectionString,
-// });
-
 module.exports = { pool };
